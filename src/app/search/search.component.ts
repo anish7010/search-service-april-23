@@ -45,18 +45,17 @@ export class SearchComponent implements OnInit {
   }
 
   showValue() : void {
-    /*
-    this.success.emit({
-      'query' : this.query,
-      'category' : this.category
-    });
-    */
    this.searchService.searchProducts(this.query)
    .subscribe(res => {
      this.products = res;
    });
    this.flag=false;
+    this.success.emit({
+      'query' : this.query,
+      'category' : this.category
+    });
   }
+
   // for the search to work even on pressing enter
   /*
   onPressEnter(event) {
@@ -75,10 +74,5 @@ export class SearchComponent implements OnInit {
       this.products = res;
     });
     this.flag=false;
-  }
-
-  search() : void {
-    alert("Hello")
-    document.getElementById("searchButton").click;
   }
 }
